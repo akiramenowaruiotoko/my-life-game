@@ -1,24 +1,55 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type     | Options     |
+| --------           | ------   | ----------- |
+| nickname           | string   | null: false |
+| email              | string   | null: false |
+| encrypted_password | string   | null: false |
+| private            | boolean  | null: false |
+| free_time          | time     |             |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :targets
+- has_many :goods
 
-* Configuration
+## targets テーブル
 
-* Database creation
+| Column       | Type       | Options           |
+| ------       | ------     | -----------       |
+| name         | string     | null: false       |
+| date         | date       | null: false       |
+| category_id  | integer    | null: false       |
+| user         | references | foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one    :achieve
+- has_many   :goods
 
-* Services (job queues, cache servers, search engines, etc.)
+## achieves テーブル
 
-* Deployment instructions
+| Column        | Type       | Options           |
+| -------       | ---------- | ----------------- |
+| achieve       | boolean    | null: false       |
+| date          | date       | null: false       |
+| item          | references | foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :achieve
+
+## goods テーブル
+
+| Column        | Type       | Options           |
+| -------       | ---------- | ----------------- |
+| target        | references | foreign_key: true |
+| user          | references | foreign_key: true |
+
+### Association
+
+- belongs_to :target
+- belongs_to :user
