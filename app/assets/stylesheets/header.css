@@ -1,0 +1,29 @@
+.header-wrapper{
+  border-bottom: 5px solid rgb(39, 39, 148);
+  height: 125px;
+  width: calc(100vw - 350px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-header{
+  margin-left: 25px;
+}
+.logo{
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.header-nickname{
+  margin-bottom: 5px;
+}
+
+.devise-header{
+  display: flex;
+}
+
+.sign-up,top-page{
+  margin: 0 20px;
+}

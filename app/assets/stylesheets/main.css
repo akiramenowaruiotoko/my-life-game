@@ -1,0 +1,32 @@
+.main-wrapper{
+  height: calc(100vh - 125px - 125px);
+  width: calc(100vw - 350px);
+  overflow: scroll;
+}
+
+.achieves{
+  background-color: rgb(210, 236, 236);
+}
+
+.target{
+  padding: 20px 0;
+  margin: 0 25px;
+  border-bottom: 1px solid rgb(39, 39, 148);
+}
+
+.upper-target{
+  display: flex;
+}
+
+.target-content{
+  word-wrap: break-word;
+  margin: 5px;
+}
+
+.side-target{
+  display: flex;
+}
+
+.target-achieve{
+  margin: 0 25px;
+}
