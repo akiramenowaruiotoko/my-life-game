@@ -1,6 +1,6 @@
 .main-wrapper{
-  height: calc(100vh - 125px - 125px);
-  width: calc(100vw - 350px);
+  height: calc(100vh - 125px);
+  width: calc(100vw - 300px);
   overflow: scroll;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .target{
-  padding: 20px 0;
+  padding: 10px 0;
   margin: 0 25px;
   border-bottom: 1px solid rgb(39, 39, 148);
 }
@@ -25,6 +25,7 @@
 .target-content{
   word-wrap: break-word;
   margin: 5px;
+  line-height: 21px;
 }
 
 .side-target{

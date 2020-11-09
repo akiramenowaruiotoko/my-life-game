@@ -13,12 +13,11 @@
 .logo{
   font-size: 40px;
   line-height: 40px;
-  margin-bottom: 10px;
   text-decoration: none;
 }
 
 .header-nickname{
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 .devise-header{

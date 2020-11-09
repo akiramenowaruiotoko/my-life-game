@@ -1,6 +1,6 @@
 .form-group{
   height: 125px;
-  width: calc(100vw - 350px);
+  width: calc(100vw);
   padding: 5px 5px;
   display: flex;
   background-color: rgb(156, 223, 200);

@@ -2,7 +2,7 @@ thead.side-bar-header.side-bar-header,tbody.side-bar-main{
   background-color: rgb(26, 26, 109);
   color: aliceblue;
   border-right: 5px solid brown;
-  width: 350px;
+  width: 300px;
   display: flex;
   align-items: center;
 }
@@ -21,7 +21,7 @@ tbody.side-bar-main{
 
 th.side-bar-header-nickname,td.side-bar-main-nickname{
   word-wrap: break-word;
-  width: 300px;
+  width: 250px;
   display: block;
 }
 

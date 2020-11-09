@@ -2,7 +2,7 @@
   <div class="left-header">
     <%= link_to "My Life Game", root_path, class: "logo" %>
     <div class="header-nickname">
-    <%= link_to "難波六田、ユーザー情報編集", edit_user_registration_path(current_user) , class: "nav-link" %></div>
+    <%= link_to "難波六田 ユーザー情報編集", edit_user_registration_path(current_user) , class: "nav-link" %></div>
   </div>
   <div class="devise-header">
     <% if current_page?('/users/sign_up') %>
@@ -12,7 +12,7 @@
       <%= link_to "sign_up", new_user_registration_path , class: "nav-link" %>
       <%= link_to "top-page", root_path, class: "nav-link" %>
     <% elsif user_signed_in? %>
-      <%= link_to "log_out", destroy_user_session_path, method: :delete , class: "nav-link" %>
+      <%= link_to "log-out", destroy_user_session_path, method: :delete , class: "nav-link" %>
       <%= link_to "top-page", root_path , class: "nav-link"%>
     <% else %>
       <%= link_to "log_in", new_user_session_path , class: "nav-link" %>
