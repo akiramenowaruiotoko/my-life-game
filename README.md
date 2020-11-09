@@ -20,7 +20,7 @@
 | Column       | Type       | Options           |
 | ------       | ------     | -----------       |
 | content      | string     | null: false       |
-| date         | date       | null: false       |
+| target_date  | date       | null: false       |
 | user         | references | foreign_key: true |
 
 ### Association

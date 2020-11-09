@@ -1,0 +1,36 @@
+table.side-bar{
+  background-color: rgb(26, 26, 109);
+  color: aliceblue;
+  width: 25vw;
+}
+
+thead,tbody{
+  border-right: 5px solid brown;
+  display: flex;
+  align-items: center;
+}
+
+thead{
+  height: 10vh;
+  border-bottom: 5px solid white;
+  justify-content: center;
+}
+
+tbody{
+  height: 90vh;
+  overflow-y: scroll;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+td{
+  width: 19vw;
+  display: block;
+  word-wrap: break-word;
+  margin: 10px 0;
+}
+
+.my-page{
+  color: aliceblue;
+  text-decoration: none;
+}

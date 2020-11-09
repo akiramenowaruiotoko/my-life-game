@@ -1,0 +1,14 @@
+.new-wrapper{
+  font-size: 18px;
+}
+
+.new-header{
+  height: 10vh;
+}
+.new-main{
+  height: calc(100vh - 10vh - 135px);
+}
+
+.new-form{
+  height: 135px;
+}

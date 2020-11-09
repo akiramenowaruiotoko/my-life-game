@@ -1,0 +1,12 @@
+.index-wrapper{
+  display: flex;
+  font-size: 18px;
+}
+
+.index-header{
+  width: 75vw;
+}
+.index-main{
+  width: 75vw;
+  height: 90vh;
+}
