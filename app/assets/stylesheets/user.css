@@ -1,0 +1,30 @@
+.sign-up,.log-in{
+  margin-left: 25px;
+}
+
+h2{
+  font-size: 30px;
+  margin-top: 25px;
+}
+
+.field{
+  margin-top: 10px;
+}
+
+.actions{
+  margin-top: 10px;
+}
+
+.free-time{
+  font-size: 25px;
+}
+
+.private-mode{
+  width: 30px;
+  height: 30px;
+}
+
+.actions{
+  margin-top: 30px;
+  font-size: 20px;
+}

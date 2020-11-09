@@ -18,6 +18,10 @@
   display: flex;
 }
 
+.remaining_time{
+  margin-left: 20px;
+}
+
 .target-content{
   word-wrap: break-word;
   margin: 5px;

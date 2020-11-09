@@ -7,8 +7,8 @@
 | nickname           | string   | null: false |
 | email              | string   | null: false |
 | encrypted_password | string   | null: false |
-| private            | boolean  | null: false |
 | free_time          | time     |             |
+| private            | boolean  | null: false |
 
 ### Association
 
