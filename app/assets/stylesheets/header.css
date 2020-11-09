@@ -5,26 +5,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 25px;
 }
 
-.left-header{
-  margin-left: 25px;
-}
 .logo{
   font-size: 40px;
   line-height: 40px;
   text-decoration: none;
 }
 
-.header-nickname{
-  margin: 5px 0;
+.user-edit{
+  text-indent: -10px;
 }
 
-.devise-header{
+.devise-nav{
   display: flex;
 }
 
 .nav-link{
-  margin-right: 20px;
+  margin: 0 10px;
   text-decoration: none;
 }
