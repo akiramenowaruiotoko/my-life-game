@@ -10,13 +10,13 @@
   width: 100%;
 }
 
-.form-date{
-  width: 100%;
-  height: 40px;
+.target-date-wrap{
+  display: flex;
+  height: 30px;
   margin-bottom: 5px;
 }
 
-.form-target{
+.content{
   width: 100%;
   height: 70px;
 }

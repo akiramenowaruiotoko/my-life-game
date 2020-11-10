@@ -1,47 +1,36 @@
 <div class="main">
   <div class="targets">
-    <h2>表示しているユーザー名</h2>
-    <div class="target">
-      <div class="upper-target">
-        <div class="taget-date">
-          達成予定日 : 2020/10/23
-        </div>
-        <div class="remaining_time">
-          残り日時 : 2020/10/23 13:54
-        </div>
-      </div>
-      <div class="lower-target">
-        <div class="target-content">
-          月に行くaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </div>
-      </div>
-      <div class="side-target">
-        <div class="target-fight">ガンバ！</div>
-        <div class="target-achieve">achieve</div>
-        <div class="target-edit">edit</div>
-      </div>
-    </div>  
-    
-    <div class="target">
-      <div class="upper-target">
-        <div class="taget-date">
-          達成予定日 : 2020/10/23
-        </div>
-      </div>
-      <div class="lower-target">
-        <div class="target-content">
-          月に行くaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </div>
-      </div>
-      <div class="side-target">
-        <div class="target-fight">ガンバ！</div>
-        <div class="target-achieve">achieve</div>
-        <div class="target-edit">edit</div>
-      </div>
-    </div>  
+    <h2>ユーザー名：
+    <%= @user.nickname %>
+    </h2>
 
-  </div>
+    <% @targets.each do |target| %>
+      <div class="target">
+        <div class="upper-target">
+          <div class="taget-date">
+            達成予定日 : <%= target.target_date %>
+          </div>
+          <div class="remaining_time">
+            残り日時 : 2020/10/23 13:54
+          </div>
+        </div>
+        <div class="lower-target">
+          <div class="target-content">
+            <%= target.content %>
+          </div>
+        </div>
+        <div class="side-target">
+          <div class="target-fight">ガンバ！</div>
+          <div class="target-achieve">achieve</div>
+          <div class="target-edit">
+            <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
+          </div>
+        </div>
+      </div>  
+    <% end %>
     
+  </div>
+
   <div class="achieves">
     <div class="target">
       <div class="upper-target">

@@ -1,17 +1,18 @@
 <table  class="side-bar">
   <thead>
     <tr><th>
-    <%= link_to "マイページへ", new_target_path(current_user), class: "my-page" %> </th></tr>
+    <% if user_signed_in? %>
+    <%= link_to "マイページへ", new_target_path(current_user), class: "my-page" %>
+    <% else %>
+    <%= link_to "ログイン",                      new_user_session_path, class: "my-page" %>
+    <% end %>
+     </th></tr>
   </thead>
   <tbody>
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>agggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
-    <tr><td>aaaasffffffffffffffffffffffffffffffgggggggggggggggggggffaaaa</td></tr>   
+    <% @users.each do |user| %>
+      <tr><td>
+      <%= link_to user.nickname, target_path(user.id), class: "nickname-nav" %>
+        </td></tr>   
+    <% end %>
   </tbody>
 </table>

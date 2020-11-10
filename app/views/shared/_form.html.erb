@@ -1,11 +1,21 @@
-<div class="form-group">
+<%= form_with model: @target, class: 'form-group', lacal: true do |f| %>
   <div class="input-wrap">
-    <div class="form-date-wrap">
-      <input class="form-date" placeholder= "select target date">
+    <div class='target-date-wrap'>
+      <%= f.label :target_date %>
+        <%= raw sprintf(
+                  f.date_select(
+                    :target_date,
+                    class:'target-date',
+                    id:"target-date",
+                    use_month_numbers: true,
+                    start_year: 1800,
+                    end_year: (Time.now.year + 300),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-    <div class="form-target-wrap">
-      <input class="form-target" placeholder= "type a target">
+    <div class="content">
+      <%= f.text_area :content, placeholder: "目標を入力", size: "35x3%" %>
     </div>
   </div>
-  <input class="form-submit" type="submit" value="送信">
-</div>
+  <%= f.submit '送信', class: 'form-submit' %>
+<% end %>

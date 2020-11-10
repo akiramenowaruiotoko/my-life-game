@@ -28,9 +28,15 @@ td{
   display: block;
   word-wrap: break-word;
   margin: 10px 0;
+  text-decoration: none;
 }
 
 .my-page{
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.nickname-nav{
   color: aliceblue;
   text-decoration: none;
 }
