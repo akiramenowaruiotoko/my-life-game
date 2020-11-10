@@ -25,6 +25,9 @@
           <div class="target-edit">
             <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
           </div>
+          <div class="target-delete">
+            <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
+          </div>
         </div>
       </div>  
     <% end %>

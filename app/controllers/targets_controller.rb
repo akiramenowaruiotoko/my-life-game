@@ -38,6 +38,12 @@ class TargetsController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @target = Target.find(params[:id])
+    @target.destroy
+    redirect_to action: :new
+  end
 
   private
   def target_params
