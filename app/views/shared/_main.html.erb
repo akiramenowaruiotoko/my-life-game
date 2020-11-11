@@ -22,12 +22,14 @@
         <div class="side-target">
           <div class="target-fight">ガンバ！</div>
           <div class="target-achieve">achieve</div>
-          <div class="target-edit">
-            <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
-          </div>
-          <div class="target-delete">
-            <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
-          </div>
+          <% if user_signed_in? && current_user.id == @user.id %>
+            <div class="target-edit">
+              <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
+            </div>
+            <div class="target-delete">
+              <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
+            </div>
+          <% end %>
         </div>
       </div>  
     <% end %>
