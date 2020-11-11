@@ -7,16 +7,16 @@ class TargetsController < ApplicationController
 
   def index
   end
-  
+
   def show
     @user = User.find(params[:id])
     set_targets
   end
-  
+
   def new
     @target = Target.new
   end
-  
+
   def create
     @target = Target.create(target_params)
     if @target.save
@@ -25,10 +25,10 @@ class TargetsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
   end
-  
+
   def update
     if @target.update(target_params)
       redirect_to action: :new
@@ -36,35 +36,34 @@ class TargetsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @target.destroy
     redirect_to action: :new
   end
-  
+
   def move_to_index
-    unless current_user.id == @target.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless current_user.id == @target.user_id
   end
 
   def set_user_where
     @users = User.where(private_mode: 0)
   end
-  
+
   def set_current_user
     @user = User.find(current_user.id)
   end
-  
+
   def set_targets
     @targets = @user.targets.order('target_date DESC')
   end
-  
+
   def set_target_find_id
     @target = Target.find(params[:id])
   end
 
   private
+
   def target_params
     params.require(:target).permit(:target_date, :content).merge(user_id: current_user.id)
   end

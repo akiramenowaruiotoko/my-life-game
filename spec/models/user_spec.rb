@@ -5,55 +5,55 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    context "新規登録がうまくいくとき" do
-      it "nickname, email, password, password_confirmation, private_modeが存在すれば登録できる"do
+    context '新規登録がうまくいくとき' do
+      it 'nickname, email, password, password_confirmation, private_modeが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it "free_timeが存在しなくても登録できる"do
+      it 'free_timeが存在しなくても登録できる' do
         @user.free_time = nil
         expect(@user).to be_valid
       end
-      it "passwordが6文字以上であれば登録できる" do
-        @user.password = "000000"
-        @user.password_confirmation = "000000"
+      it 'passwordが6文字以上であれば登録できる' do
+        @user.password = '000000'
+        @user.password_confirmation = '000000'
         expect(@user).to be_valid
       end
     end
 
-    context "新規登録がうまくいかないとき" do
-      it "nicknameが空では登録できない"do
+    context '新規登録がうまくいかないとき' do
+      it 'nicknameが空では登録できない' do
         @user.nickname = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
-      it "emailが空では登録できない"do
+      it 'emailが空では登録できない' do
         @user.email = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank")
       end
-      it "passwordが空では登録できない"do
+      it 'passwordが空では登録できない' do
         @user.password = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("Password can't be blank")
       end
-      it "passwordが5文字以下であれば登録できない" do
-        @user.password = "00000"
-        @user.password_confirmation = "00000"
+      it 'passwordが5文字以下であれば登録できない' do
+        @user.password = '00000'
+        @user.password_confirmation = '00000'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
-      it "passwordとpassword_confirmationが不一致では登録できない" do
-        @user.password = "000000"
-        @user.password_confirmation = "000001"
+      it 'passwordとpassword_confirmationが不一致では登録できない' do
+        @user.password = '000000'
+        @user.password_confirmation = '000001'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-  
-      it "重複したemailが存在する場合登録できない" do
+
+      it '重複したemailが存在する場合登録できない' do
         @user.save
         another_user = FactoryBot.build(:user, email: @user.email)
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
     end
   end
