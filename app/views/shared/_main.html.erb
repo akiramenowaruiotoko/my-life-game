@@ -1,17 +1,21 @@
 <div class="main">
-  <div class="targets">
-    <h2>ユーザー名：
-    <%= @user.nickname %>
-    </h2>
+  <%= @user.nickname %> １日の自由時間 
+  <%= @user.free_time.strftime("%H:%M") %>
 
+  <ul class="targets">
+  <% i = 0 %>
     <% @targets.each do |target| %>
-      <div class="target">
-        <div class="upper-target">
-          <div class="taget-date">
-            達成予定日 : <%= target.target_date %>
-          </div>
-          <div class="remaining_time">
-            残り日時 : 2020/10/23 13:54
+      <%= i += 1 %>
+      <li class="target" target-id=<%= target.id %>>
+      <div class="upper-target">
+      達成予定日
+      <div class="taget-date" ,id="targetDate"><%= target.target_date %>
+      </div>
+
+      <div class="upper-time">
+      残り日時
+      <div class="remaining-time", id='remaining-time'></div>
+            
           </div>
         </div>
         <div class="lower-target">
@@ -31,47 +35,7 @@
             </div>
           <% end %>
         </div>
-      </div>  
-    <% end %>
-    
-  </div>
-
-  <div class="achieves">
-    <div class="target">
-      <div class="upper-target">
-        <div class="taget-date">
-          達成予定日 : 2020/10/23
-        </div>
-      </div>
-      <div class="lower-target">
-        <div class="target-content">
-          月に行くaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </div>
-      </div>
-      <div class="side-target">
-        <div class="target-fight">ガンバ！</div>
-        <div class="target-achieve">achieve</div>
-        <div class="target-edit">edit</div>
-      </div>
-    </div>
-
-    <div class="target">
-      <div class="upper-target">
-        <div class="taget-date">
-          達成予定日 : 2020/10/23
-        </div>
-      </div>
-      <div class="lower-target">
-        <div class="target-content">
-          月に行くaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </div>
-      </div>
-      <div class="side-target">
-        <div class="target-fight">ガンバ！</div>
-        <div class="target-achieve">achieve</div>
-        <div class="target-edit">edit</div>
-      </div>
-    </div>
-
-  </div>
+      </li>  
+    <% end %>    
+  </ul>
 </div>
