@@ -10,16 +10,24 @@
 
 .nickname{
   font-size: 20px;
-  margin: 10px 10px 0;
+  margin: 5px 10px 0;
+}
+
+.free-time-wrapper{
+  margin: 10px;
 }
 
 .free-time{
-  margin: 10px;
+  margin-left: 10px;
   font-size: 20px;
 }
 
 .chenge-time{
-  margin: 0 10px;
+  margin: 10px 10px 0;
+}
+
+button{
+  margin-left: 10px;
 }
 
 .achieves{

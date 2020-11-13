@@ -1,13 +1,17 @@
 <div class="main">
   <div class="upper-main">
     <div class="nickname">
+      nickname<br>
       <%= @user.nickname %>さん
     </div>
-    <div class="free-time", id="free-time">１日の自由時間 
-      <%= @user.free_time.strftime("%H:%M") %>
+    <div class="free-time-wrapper">
+      <p>１日の自由時間<p>
+      <div class="free-time", id="free-time"> 
+        <%= @user.free_time.strftime("%H:%M") %>
+      </div>
     </div>
     <div class="chenge-time">
-      表示切り替え<br>
+      カウントダウン開始/表示切り替え<br>
       <button class="remaining-date", id="remaining-date">
         日付
       </button>
