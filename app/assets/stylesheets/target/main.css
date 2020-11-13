@@ -4,8 +4,22 @@
   overflow: scroll;
 }
 
-h2{
-  margin-left: 25px;
+.upper-main{
+  display: flex;
+}
+
+.nickname{
+  font-size: 20px;
+  margin: 10px 10px 0;
+}
+
+.free-time{
+  margin: 10px;
+  font-size: 20px;
+}
+
+.chenge-time{
+  margin: 0 10px;
 }
 
 .achieves{
