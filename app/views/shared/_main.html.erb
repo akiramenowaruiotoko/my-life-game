@@ -21,39 +21,81 @@
     </div>
   </div>
 
-  <ul class="targets">
-  <% i = 0 %>
+  <ul class="targets">目標<br>
     <% @targets.each do |target| %>
-      <%= i += 1 %>
-      <li class="target" target-id=<%= target.id %>>
-      <div class="upper-target">
-      達成予定日
-      <div class="taget-date" ,id="targetDate"><%= target.target_date %>
-      </div>
-
-      <div class="upper-time">
-      <div class="remaining-time", id='remaining-time'></div>
-            
+      <% unless target.achieve %>
+        <li class="target" target-id=<%= target.id %>>
+          <div class="upper-target">
+          達成予定日
+            <div class="taget-date" ,id="targetDate"><%= target.target_date %></div>
+            <div class="remaining-time", id='remaining-time'></div>
           </div>
-        </div>
-        <div class="lower-target">
-          <div class="target-content">
-            <%= target.content %>
+          <div class="lower-target">
+            <div class="target-content">
+              <%= target.content %>
+            </div>
           </div>
-        </div>
-        <div class="side-target">
-          <div class="target-fight">ガンバ！</div>
-          <div class="target-achieve">achieve</div>
-          <% if user_signed_in? && current_user.id == @user.id %>
-            <div class="target-edit">
-              <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
-            </div>
-            <div class="target-delete">
-              <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
-            </div>
-          <% end %>
-        </div>
-      </li>  
+          <div class="side-target">
+            <div class="target-fight">ガンバ！</div>
+            <% if user_signed_in? && current_user.id == @user.id %>
+              <div class="target-achieve">
+                <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
+                  <div class="achieve-check">
+                    <%= f.label :achieve %>
+                    <%= f.check_box :achieve, { class: "achieve"} %>
+                    <%= f.submit "送信" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="target-edit">
+                <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
+              </div>
+              <div class="target-delete">
+                <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
+              </div>
+            <% end %>
+          </div>
+        </li>  
+      <% end %>
     <% end %>    
   </ul>
+
+  <ul class="achieves">取得スキル<br>
+    <% @targets.each do |target| %>
+      <% if target.achieve %>
+        <li class="target" target-id=<%= target.id %>>
+          <div class="upper-target">
+          取得日
+            <div class="skill-date" ,id="skillDate"><%= target.target_date %></div>
+          </div>
+          <div class="lower-target">
+            <div class="target-content">
+              <%= target.content %>
+            </div>
+          </div>
+          <div class="side-target">
+            <div class="target-fight">ガンバ！</div>
+            <% if user_signed_in? && current_user.id == @user.id %>
+          <div class="target-achieve">
+            <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
+              <div class="achieve-check">
+                <%= f.label :achieve %>
+                <%= f.check_box :achieve, { class: "achieve"} %>
+                <%= f.submit "送信" %>
+              </div>
+            <% end %>
+          </div>
+              <div class="target-edit">
+                <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
+              </div>
+              <div class="target-delete">
+                <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
+              </div>
+            <% end %>
+          </div>
+        </li>  
+      <% end %>    
+    <% end %>    
+  </ul>
+                
 </div>

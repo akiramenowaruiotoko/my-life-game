@@ -3,7 +3,7 @@ class TargetsController < ApplicationController
   before_action :set_current_user, only: [:new, :edit]
   before_action :set_targets, only: [:new, :edit]
   before_action :set_target_find_id, only: [:edit, :update, :destroy, :move_to_index]
-  before_action :move_to_index, only: [:edit, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -22,6 +22,8 @@ class TargetsController < ApplicationController
     if @target.save
       redirect_to action: :new
     else
+      set_current_user
+      set_targets
       render :new
     end
   end
@@ -33,6 +35,8 @@ class TargetsController < ApplicationController
     if @target.update(target_params)
       redirect_to action: :new
     else
+      set_current_user
+      set_targets
       render :edit
     end
   end
@@ -65,6 +69,6 @@ class TargetsController < ApplicationController
   private
 
   def target_params
-    params.require(:target).permit(:target_date, :content).merge(user_id: current_user.id)
+    params.require(:target).permit(:target_date, :content, :achieve).merge(user_id: current_user.id)
   end
 end

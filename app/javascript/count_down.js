@@ -16,7 +16,8 @@ const countDownDate = () => {
     // 取得した日時を秒に変換（時間調整するため）
     targetDateValue = targetDateValue.getTime();
     nowTime = nowTime.getTime();
-    // 時間調整(目標日当日は期限内としたいため)
+    // 時間調整(日本時刻調整と目標日当日まで期限内としたいため)
+    targetDateValue -= ( 3600 * 9 * 1000);
     targetDateValue += ( 3600 * 24 * 1000);
     // 残り時間を計算
     let rmainingTime = targetDateValue - nowTime;
@@ -79,7 +80,8 @@ const countDownFreeTime = () => {
     // 取得した日時を秒に変換（時間調整するため）
     targetDateValue = targetDateValue.getTime();
     nowTime = nowTime.getTime();
-    // 時間調整(目標日当日は期限内としたいため)
+    // 時間調整(日本時刻調整と目標日当日まで期限内としたいため)
+    targetDateValue -= ( 3600 * 9 * 1000);
     targetDateValue += ( 3600 * 24 * 1000);
     // 残り時間を計算
     let rmainingTime = targetDateValue - nowTime;
