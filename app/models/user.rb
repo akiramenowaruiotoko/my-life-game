@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
+  validates :free_time, presence: true
+  validates :private_mode, inclusion: { in: [true, false]}
 
   has_many :targets
   has_many :fights

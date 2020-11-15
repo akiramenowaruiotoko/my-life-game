@@ -5,6 +5,6 @@ FactoryBot.define do
     password              { Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
     free_time             { '16:00:00' }
-    private_mode          { 1 }
+    private_mode          { Faker::Boolean.boolean }
   end
 end

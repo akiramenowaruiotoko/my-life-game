@@ -26,7 +26,7 @@ const countDownDate = () => {
     if( targetDateValue < nowTime) {
       rmainingTime *= -1;
     }
-    // 残り時間を日数・時間・分・秒に分割
+    // 残り時間を年・日数・時間・分・秒に分割
     const ryear = rmainingTime / ( 60 * 60 * 24 * 365);
     rmainingTime = rmainingTime % ( 60 * 60 * 24 * 365);
     const rDays = rmainingTime / ( 60 * 60 * 24);
@@ -41,7 +41,7 @@ const countDownDate = () => {
     + Math.floor(rHour) + "時間"
     + Math.floor(rMin) + "分"
     + Math.floor(rSec) + "秒";
-    // 表示文字列の作成
+    // 表示する内容を記述
     let message;
     // 目標日がまだの場合とすぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
