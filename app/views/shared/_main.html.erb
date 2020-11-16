@@ -51,14 +51,14 @@
             </div>
             <% if user_signed_in? && current_user.id == @user.id %>
               <div class="target-achieve">
-                <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
-                  <div class="achieve-check">
-                  <i class="fas fa-check-square"></i>
-                  <i class="far fa-square"></i>
-                    <%= f.label :achieve %>
-                    <%= f.check_box :achieve, { class: "achieve"} %>
-                    <%= f.submit "送信" %>
-                  </div>
+                <% if target.already_achieved?(target) %>
+                  <%= link_to  target_achiefe_path(target, target), method: :delete, class: "achieve" do %>
+                    <i class="fas fa-check-square"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to target_achieves_path(target), method: :post, class: "achieve" do %>
+                    <i class="far fa-square"></i>
+                  <% end %>
                 <% end %>
               </div>
               <div class="target-edit">
@@ -102,13 +102,15 @@
             </div>
             <% if user_signed_in? && current_user.id == @user.id %>
               <div class="target-achieve">
-                <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
-                  <div class="achieve-check">
-                    <%= f.label :achieve %>
-                    <%= f.check_box :achieve, { class: "achieve"} %>
-                    <%= f.submit "送信" %>
-                  </div>
+                <% if target.already_achieved?(target) %>
+                  <%= link_to  target_achiefe_path(target, target), method: :delete, class: "achieve" do %>
+                    <i class="fas fa-check-square"></i>
+                  <% end %>
+                <% else %>
+                <%= link_to target_achieves_path(target), method: :post, class: "achieve" do %>
+                  <i class="far fa-square"></i>
                 <% end %>
+              <% end %>
               </div>
               <div class="target-edit">
                 <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
