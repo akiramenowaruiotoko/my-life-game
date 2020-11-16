@@ -21,24 +21,13 @@
 | ------       | ------     | -----------       |
 | content      | string     | null: false       |
 | target_date  | date       | null: false       |
+| achieve      | boolean    | null: false       |
 | user         | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one    :achieve
 - has_many   :fights
-
-## achieves テーブル
-
-| Column        | Type       | Options           |
-| -------       | ---------- | ----------------- |
-| achieve       | boolean    | null: false       |
-| target        | references | foreign_key: true |
-
-### Association
-
-- belongs_to :target
 
 ## fights テーブル
 

@@ -1,4 +1,5 @@
 <div class="main">
+
   <div class="upper-main">
     <div class="nickname">
       nickname<br>
@@ -36,11 +37,24 @@
             </div>
           </div>
           <div class="side-target">
-            <div class="target-fight">ガンバ！</div>
+            <div class="target-fight">
+              <%= target.fights.count %>
+              <% if current_user.already_fought?(target) %>
+                <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+            </div>
             <% if user_signed_in? && current_user.id == @user.id %>
               <div class="target-achieve">
                 <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
                   <div class="achieve-check">
+                  <i class="fas fa-check-square"></i>
+                  <i class="far fa-square"></i>
                     <%= f.label :achieve %>
                     <%= f.check_box :achieve, { class: "achieve"} %>
                     <%= f.submit "送信" %>
@@ -74,17 +88,28 @@
             </div>
           </div>
           <div class="side-target">
-            <div class="target-fight">ガンバ！</div>
+            <div class="target-fight">
+              <%= target.fights.count %>
+              <% if current_user.already_fought?(target) %>
+                <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+            </div>
             <% if user_signed_in? && current_user.id == @user.id %>
-          <div class="target-achieve">
-            <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
-              <div class="achieve-check">
-                <%= f.label :achieve %>
-                <%= f.check_box :achieve, { class: "achieve"} %>
-                <%= f.submit "送信" %>
+              <div class="target-achieve">
+                <%= form_with model: target, class: 'form-achieve', local: true do |f| %>
+                  <div class="achieve-check">
+                    <%= f.label :achieve %>
+                    <%= f.check_box :achieve, { class: "achieve"} %>
+                    <%= f.submit "送信" %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
-          </div>
               <div class="target-edit">
                 <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
               </div>

@@ -1,8 +1,10 @@
 class Target < ApplicationRecord
-  validates :content, presence: true
-  validates :target_date, presence: true
-  validates :achieve, inclusion: { in: [true, false]}
-
   belongs_to :user
-  has_many :fights
+  has_many :fights, dependent: :destroy
+
+  with_options presence: true do
+    validates :content
+    validates :target_date
+  end
+  validates :achieve, inclusion: { in: [true, false]}
 end

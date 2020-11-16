@@ -12,11 +12,11 @@ class TargetsController < ApplicationController
     @user = User.find(params[:id])
     set_targets
   end
-
+  
   def new
     @target = Target.new
   end
-
+  
   def create
     @target = Target.create(target_params)
     if @target.save
@@ -27,13 +27,13 @@ class TargetsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
   end
 
   def update
     if @target.update(target_params)
-      redirect_to action: :new
+      redirect_back(fallback_location: root_path)
     else
       set_current_user
       set_targets

@@ -9,5 +9,9 @@ class User < ApplicationRecord
   validates :private_mode, inclusion: { in: [true, false]}
 
   has_many :targets
-  has_many :fights
+  has_many :fights, dependent: :destroy
+
+  def already_fought?(target)
+    self.fights.exists?(target_id: target.id)
+  end
 end
