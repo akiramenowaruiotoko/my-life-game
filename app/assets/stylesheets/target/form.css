@@ -1,27 +1,31 @@
 .form-group{
-  padding: 10px;
   display: flex;
-  background-color: rgb(156, 223, 200);
-  height: 135px;
+  background-color: rgb(40, 40, 146);
+  color: aliceblue;
+  width: 100%;
+  height: 100%;
+  padding: 13px 10px;
 }
 
-.input-wrap{
+/* .input-wrap{
   display: table;
-  width: 100%;
-}
+} */
 
 .target-date-wrap{
   display: flex;
   height: 30px;
-  margin-bottom: 5px;
 }
-
-.content{
-  width: 100%;
-  height: 70px;
+.form-label{
+  margin-right: 10px;
+}
+textarea {
+  width: 280px;
+  height: 5em;
+  margin-top: 13px;
 }
 
 .form-submit{
-  margin-left: 5px;
-  width: 70px;
+  height: 5em;
+  width: 50px;
+  margin: auto 0 0 5px;
 }

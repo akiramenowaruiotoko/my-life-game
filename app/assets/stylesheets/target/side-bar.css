@@ -1,6 +1,5 @@
 table.side-bar{
   background-color: rgb(26, 26, 109);
-  color: aliceblue;
   width: 25vw;
 }
 
@@ -29,14 +28,16 @@ td{
   word-wrap: break-word;
   margin: 10px 0;
   text-decoration: none;
+  color: aliceblue;
 }
 
 .my-page{
-  color: aliceblue;
+  font-weight: bold;
+  color: rgb(255, 243, 240);
   text-decoration: none;
 }
 
-.nickname-nav{
+.name-nav{
   color: aliceblue;
   text-decoration: none;
 }

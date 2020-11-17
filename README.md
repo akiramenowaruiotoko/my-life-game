@@ -4,7 +4,7 @@
 
 | Column             | Type     | Options     |
 | --------           | ------   | ----------- |
-| nickname           | string   | null: false |
+| name               | string   | null: false |
 | email              | string   | null: false |
 | encrypted_password | string   | null: false |
 | free_time          | time     | null: false |
@@ -21,20 +21,30 @@
 | ------       | ------     | -----------       |
 | content      | string     | null: false       |
 | target_date  | date       | null: false       |
-| achieve      | boolean    | null: false       |
 | user         | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- has_one    :achieve
 - has_many   :fights
+
+## achieves テーブル
+
+| Column        | Type       | Options           |
+| -------       | ---------- | ----------------- |
+| target        | integer    |                   |
+
+### Association
+
+- belongs_to :target
 
 ## fights テーブル
 
 | Column        | Type       | Options           |
 | -------       | ---------- | ----------------- |
-| target        | references | foreign_key: true |
-| user          | references | foreign_key: true |
+| target        | integer    |                   |
+| user          | integer    |                   |
 
 ### Association
 

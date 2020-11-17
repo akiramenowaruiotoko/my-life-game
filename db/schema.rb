@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_16_103235) do
 
   create_table "achieves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "target_id"
+    t.integer "target_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,16 +28,15 @@ ActiveRecord::Schema.define(version: 2020_11_16_103235) do
   create_table "targets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content", null: false
     t.date "target_date", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_targets_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "nickname", null: false
+    t.string "name", null: false
     t.boolean "private_mode", default: false, null: false
     t.time "free_time", null: false
     t.string "reset_password_token"
@@ -49,5 +48,4 @@ ActiveRecord::Schema.define(version: 2020_11_16_103235) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "targets", "users"
 end

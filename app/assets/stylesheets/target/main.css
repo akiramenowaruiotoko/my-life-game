@@ -5,38 +5,51 @@
 }
 
 .upper-main{
+  padding: 5px 10px;
   display: flex;
+  
 }
 
-.nickname{
+.name{
+  width: 33%;
   font-size: 20px;
-  margin: 5px 10px 0;
+  word-wrap: break-word;
+  line-height: 20px;
 }
+
+.name-label{
+  margin-bottom: 5px;
+}
+
 
 .free-time-wrapper{
-  margin: 10px;
+  width: 20%;
+  margin: 0 10px;
 }
 
 .free-time{
-  margin-left: 10px;
   font-size: 20px;
 }
 
-.chenge-time{
-  margin: 10px 10px 0;
+.count-down{
+  margin: 0 10px;
 }
 
-button{
-  margin-left: 10px;
+.count-down-icon{
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.achieves{
-  background-color: rgb(210, 236, 236);
+h3{
+  padding-left: 15px;
+  font-weight: bold;
+  color: darkblue;
 }
 
 .target{
-  padding: 10px 0;
-  margin: 0 25px;
+  padding: 5px 0;
+  margin: 0 15px;
   border-bottom: 1px solid rgb(39, 39, 148);
 }
 
@@ -44,25 +57,25 @@ button{
   display: flex;
 }
 
-.remaining_time{
+.remaining-time{
   margin-left: 20px;
 }
 
 .target-content{
   word-wrap: break-word;
   margin: 5px;
+  font-weight: bold;
   line-height: 21px;
 }
 
-.side-target{
+.lower-target{
   display: flex;
   justify-content: space-around;
 }
 
-.edit{
-  text-decoration: none;
+.achieves{
+  background-color: rgb(226, 240, 250);
 }
-
-.target-achieve{
-  margin: 0 10px;
+.fight,.achieve{
+  text-decoration: none;
 }

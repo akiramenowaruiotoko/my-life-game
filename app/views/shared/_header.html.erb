@@ -2,7 +2,6 @@
   <div class="logo">
     <%= link_to "My Life Game", root_path, class: "logo" %>
   </div>
-
   <div class="devise-nav">
     <% if current_page?('/users/sign_up') %>
       <%= link_to "log-in", new_user_session_path , class: "nav-link" %>

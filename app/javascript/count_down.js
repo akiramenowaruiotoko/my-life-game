@@ -37,16 +37,16 @@ const countDownDate = () => {
     const rMin = rmainingTime / 60;
     rmainingTime = rmainingTime % 60;
     const rSec = rmainingTime;
-    const result = Math.floor(ryear) + "年"
-    + Math.floor(rDays) + "日"
-    + Math.floor(rHour) + "時間"
-    + Math.floor(rMin) + "分"
+    const result = Math.floor(ryear) + "年 "
+    + Math.floor(rDays) + "日 "
+    + Math.floor(rHour) + "時間 "
+    + Math.floor(rMin) + "分 "
     + Math.floor(rSec) + "秒";
     // 表示する内容を記述
     let message;
     // 目標日がまだの場合とすぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
-      message = `残り${result}です`;
+      message = `残り日時 ${result}`;
     }
     else {
       message = `既に${result}前に過ぎました`;
@@ -105,7 +105,7 @@ const countDownFreeTime = () => {
     let message;
     // 目標日がまだの場合とすぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
-      message = `残り自由時間はおよそ${result}です`;
+      message = `残り自由時間はおよそ ${result}`;
     }
     else {
       message = `既に過ぎました`;
@@ -146,5 +146,32 @@ document.addEventListener("turbolinks:load", function() {
     }
     countDownFreeTime();
     timeArray.push(setInterval(countDownFreeTime, 1000)); 
+  });
+  // カウントダウンを全て停止
+  $("#stop-time").on('click', function() {
+    // 出力先の要素を取得
+    const stopRmainingTime = document.getElementsByClassName("remaining-time");
+    // 繰り返し処理の回数を算出
+    const stopCount = stopRmainingTime.length;
+    if (timeArray.length > 0) {
+      const timeArrayCount = timeArray.length;
+      for (let i = 0; i < timeArrayCount; i++){
+        clearInterval(timeArray.shift());
+      };
+      // 繰り返し処理の記述
+      for (let x = 0; x < stopCount; x++ ){
+        // 出力先に出力
+        stopRmainingTime[x].innerHTML =  "";
+      };
+    }; 
+    if (dateArray.length > 0) {
+      const dateArrayCount = dateArray.length;
+      for (let i = 0; i < dateArrayCount; i++){
+        clearInterval(dateArray.shift());
+      };
+      for (let x = 0; x < stopCount; x++ ){
+        stopRmainingTime[x].innerHTML =  "";
+      };
+    }; 
   });
 });

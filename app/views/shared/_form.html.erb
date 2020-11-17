@@ -1,20 +1,20 @@
 <%= form_with model: @target, class: 'form-group', local: true do |f| %>
   <div class="input-wrap">
     <div class='target-date-wrap'>
-      <%= f.label :target_date %>
+      <p class="form-label">Target</p>
         <%= raw sprintf(
                   f.date_select(
                     :target_date,
                     class:'target-date',
                     id:"target-date",
                     use_month_numbers: true,
-                    start_year: 1971,
-                    end_year: (Time.now.year + 300),
+                    start_year: 1970,
+                    end_year: (Time.now.year + 200),
                     date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    </div>
+                  "<p>年&nbsp;</p>", "<p>月&nbsp;</p>") + "<p>日</p>" %>
+      </div>
     <div class="content">
-      <%= f.text_area :content, placeholder: "目標を入力", size: "35x3%" %>
+      <%= f.text_area :content, placeholder: "目標を入力" %>
     </div>
   </div>
   <%= f.submit '送信', class: 'form-submit' %>

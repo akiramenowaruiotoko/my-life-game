@@ -1,14 +1,17 @@
 .new-wrapper{
   font-size: 18px;
+  position: relative;
+  height: 100vh;
 }
-
 .new-header{
-  height: 10vh;
+  height: 10%;
 }
 .new-main{
-  height: calc(100vh - 10vh - 135px);
+  height: 70%;
 }
-
 .new-form{
-  height: 135px;
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

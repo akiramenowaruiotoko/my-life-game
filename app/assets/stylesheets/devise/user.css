@@ -1,10 +1,10 @@
-.sign-up,.log-in{
+.sign-up,.log-in,.user-edit{
   margin-left: 25px;
 }
 
-h2{
-  font-size: 30px;
-  margin-top: 25px;
+.devise-title{
+  font-size: 25px;
+  margin-top: 10px;
 }
 
 .field{
@@ -21,6 +21,6 @@ h2{
 }
 
 .actions{
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 20px;
 }

@@ -1,71 +1,71 @@
 <div class="main">
-
   <div class="upper-main">
-    <div class="nickname">
-      nickname<br>
-      <%= @user.nickname %>さん
+    <div class="name">
+      <p class="name-label">name</p>
+      <%= @user.name %>
     </div>
     <div class="free-time-wrapper">
-      <p>１日の自由時間<p>
+      <p>free-time<p>
       <div class="free-time", id="free-time"> 
         <%= @user.free_time.strftime("%H:%M") %>
       </div>
     </div>
-    <div class="chenge-time">
-      カウントダウン開始/表示切り替え<br>
-      <button class="remaining-date", id="remaining-date">
-        日付
-      </button>
-      <button class="remaining-free-time", id="remaining-free-time">
-        自由時間
-      </button>
+    <div class="count-down">
+      <p>countdown</p>
+      <div class="count-down-icon">
+        <i class="far fa-clock", id="remaining-date"></i>   
+        <i class="fas fa-user-clock", id="remaining-free-time"></i>
+        <i class="far fa-stop-circle", id="stop-time"></i>
+      </div>
     </div>
   </div>
 
-  <ul class="targets">目標<br>
+  <ul class="targets"><h3>ターゲット</h3>
     <% @targets.each do |target| %>
       <% unless target.achieve %>
-        <li class="target" target-id=<%= target.id %>>
+        <li class="target">
           <div class="upper-target">
-          達成予定日
+          <q>Date&nbsp;</q>
             <div class="taget-date" ,id="targetDate"><%= target.target_date %></div>
             <div class="remaining-time", id='remaining-time'></div>
           </div>
-          <div class="lower-target">
+          <div class="middle-target">
             <div class="target-content">
               <%= target.content %>
             </div>
           </div>
-          <div class="side-target">
+          <div class="lower-target">
             <div class="target-fight">
-              <%= target.fights.count %>
-              <% if current_user.already_fought?(target) %>
-                <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
-                  <i class="fas fa-heart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
-                  <i class="far fa-heart"></i>
+              <% if user_signed_in? %>
+                <%= target.fights.count %>
+                <% if current_user.already_fought?(target) %>
+                  <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
+                    <q>ガンバ！</q><i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
+                    <q>ガンバ！</q><i class="far fa-heart"></i>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
             <% if user_signed_in? && current_user.id == @user.id %>
               <div class="target-achieve">
-                <% if target.already_achieved?(target) %>
-                  <%= link_to  target_achiefe_path(target, target), method: :delete, class: "achieve" do %>
-                    <i class="fas fa-check-square"></i>
-                  <% end %>
-                <% else %>
+                <% unless target.already_achieved?(target) %>
                   <%= link_to target_achieves_path(target), method: :post, class: "achieve" do %>
-                    <i class="far fa-square"></i>
+                    <q>GET </q><i class="far fa-square"></i>
                   <% end %>
                 <% end %>
               </div>
               <div class="target-edit">
-                <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
+                <%= link_to edit_target_path(target.id), class: "edit" do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
               </div>
               <div class="target-delete">
-                <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
+                <%= link_to target_path(target.id), method: :delete, class: "edit" do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
               </div>
             <% end %>
           </div>
@@ -74,29 +74,31 @@
     <% end %>    
   </ul>
 
-  <ul class="achieves">取得スキル<br>
+  <ul class="achieves"><h3>ステータス</h3>
     <% @targets.each do |target| %>
       <% if target.achieve %>
         <li class="target" target-id=<%= target.id %>>
           <div class="upper-target">
-          取得日
+          <q>Date&nbsp;</q>
             <div class="skill-date" ,id="skillDate"><%= target.target_date %></div>
           </div>
-          <div class="lower-target">
+          <div class="middle-target">
             <div class="target-content">
               <%= target.content %>
             </div>
           </div>
-          <div class="side-target">
+          <div class="lower-target">
             <div class="target-fight">
-              <%= target.fights.count %>
-              <% if current_user.already_fought?(target) %>
-                <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
-                  <i class="fas fa-heart"></i>
-                <% end %>
-              <% else %>
-                <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
-                  <i class="far fa-heart"></i>
+              <% if user_signed_in? %>
+                <%= target.fights.count %>
+                <% if current_user.already_fought?(target) %>
+                  <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
+                    <q>ガンバ！</q><i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
+                    <q>ガンバ！</q><i class="far fa-heart"></i>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
@@ -104,19 +106,19 @@
               <div class="target-achieve">
                 <% if target.already_achieved?(target) %>
                   <%= link_to  target_achiefe_path(target, target), method: :delete, class: "achieve" do %>
-                    <i class="fas fa-check-square"></i>
+                    <q>GET </q><i class="fas fa-check-square"></i>
                   <% end %>
-                <% else %>
-                <%= link_to target_achieves_path(target), method: :post, class: "achieve" do %>
-                  <i class="far fa-square"></i>
                 <% end %>
-              <% end %>
               </div>
               <div class="target-edit">
-                <%= link_to "edit", edit_target_path(target.id), class: "edit" %>
+                <%= link_to edit_target_path(target.id), class: "edit" do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
               </div>
               <div class="target-delete">
-                <%= link_to "delete", target_path(target.id), method: :delete, class: "edit" %>
+                <%= link_to target_path(target.id), method: :delete, class: "edit" do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
               </div>
             <% end %>
           </div>

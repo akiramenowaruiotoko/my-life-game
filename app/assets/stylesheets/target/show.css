@@ -1,0 +1,9 @@
+.show-wrapper{
+  display: flex;
+}
+.show-header{
+  width: 75vw;
+}
+.show-main{
+  height: 90vh;
+}

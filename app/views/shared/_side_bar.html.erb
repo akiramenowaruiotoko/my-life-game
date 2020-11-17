@@ -2,7 +2,7 @@
   <thead>
     <tr><th>
     <% if user_signed_in? %>
-    <%= link_to "マイページへ", new_target_path(current_user), class: "my-page" %>
+    <%= link_to "マイページ", new_target_path(current_user), class: "my-page" %>
     <% else %>
     <%= link_to "ログイン",                      new_user_session_path, class: "my-page" %>
     <% end %>
@@ -11,7 +11,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr><td>
-      <%= link_to user.nickname, target_path(user.id), class: "nickname-nav" %>
+      <%= link_to user.name, target_path(user.id), class: "name-nav" %>
         </td></tr>   
     <% end %>
   </tbody>

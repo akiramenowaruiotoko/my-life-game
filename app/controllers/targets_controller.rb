@@ -22,9 +22,7 @@ class TargetsController < ApplicationController
     if @target.save
       redirect_to action: :new
     else
-      set_current_user
-      set_targets
-      render :new
+      redirect_back(fallback_location: root_path)
     end
   end
   
@@ -33,11 +31,9 @@ class TargetsController < ApplicationController
 
   def update
     if @target.update(target_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to action: :new
     else
-      set_current_user
-      set_targets
-      render :edit
+      redirect_back(fallback_location: root_path)
     end
   end
 
