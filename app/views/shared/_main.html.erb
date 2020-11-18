@@ -63,7 +63,7 @@
                 <% end %>
               </div>
               <div class="target-delete">
-                <%= link_to target_path(target.id), method: :delete, class: "edit" do %>
+                <%= link_to target_path(target.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "edit" do %>
                   <i class="fas fa-trash-alt"></i>
                 <% end %>
               </div>
@@ -116,7 +116,7 @@
                 <% end %>
               </div>
               <div class="target-delete">
-                <%= link_to target_path(target.id), method: :delete, class: "edit" do %>
+                <%= link_to target_path(target.id), data: {confirm: "本当に削除しますか？"}, method: :delete, class: "edit" do %>
                   <i class="fas fa-trash-alt"></i>
                 <% end %>
               </div>
