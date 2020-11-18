@@ -3,14 +3,12 @@
   position: relative;
   height: 100vh;
 }
-.new-header{
-  height: 10%;
-}
 .new-main{
-  height: 70%;
+  height: calc(100% - 10% - 160px);
+  width: 100vw;
 }
 .new-form{
-  height: 20%;
+  height: 160px;
   width: 100%;
   position: absolute;
   bottom: 0;

@@ -46,10 +46,10 @@ const countDownDate = () => {
     let message;
     // 目標日がまだの場合とすぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
-      message = `残り日時 ${result}`;
+      message = `残り ${result}`;
     }
     else {
-      message = `既に${result}前に過ぎました`;
+      message = `既に${result}前に経過`;
     }
     // 出力先に出力
     addRmainingTime[i].innerHTML =  message;

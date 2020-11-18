@@ -6,26 +6,25 @@
   height: 100%;
   padding: 13px 10px;
 }
-
-/* .input-wrap{
-  display: table;
-} */
-
 .target-date-wrap{
   display: flex;
-  height: 30px;
+  height: 25px;
 }
 .form-label{
   margin-right: 10px;
 }
 textarea {
-  width: 280px;
+  width: 290px;
   height: 5em;
-  margin-top: 13px;
+  margin-top: 17px;
 }
-
+@media (min-width: 768px) {
+  textarea {
+    width: 700px;
+  }
+}
 .form-submit{
   height: 5em;
   width: 50px;
-  margin: auto 0 0 5px;
+  margin: auto 0 2px 8px;
 }
