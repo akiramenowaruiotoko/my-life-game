@@ -1,13 +1,17 @@
 class FightsController < ApplicationController
+  before_action :set_fight
+  
   def create
     @fight = current_user.fights.create(target_id: params[:target_id])
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    @target = Target.find(params[:target_id])
     @fight = current_user.fights.find_by(target_id: @target.id)
     @fight.destroy
-    redirect_back(fallback_location: root_path)
+  end
+  
+  private
+  def set_fight
+    @target = Target.find(params[:target_id])    
   end
 end

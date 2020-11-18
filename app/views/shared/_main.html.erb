@@ -35,19 +35,8 @@
             </div>
           </div>
           <div class="lower-target">
-            <div class="target-fight">
-              <% if user_signed_in? %>
-                <%= target.fights.count %>
-                <% if current_user.already_fought?(target) %>
-                  <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
-                    <q>ガンバ！</q><i class="fas fa-heart"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
-                    <q>ガンバ！</q><i class="far fa-heart"></i>
-                  <% end %>
-                <% end %>
-              <% end %>
+            <div id="fight-<%= target.id%>">
+              <%= render 'fights/fight', target: target %>
             </div>
             <% if user_signed_in? && current_user.id == @user.id %>
               <div class="target-achieve">
@@ -88,19 +77,8 @@
             </div>
           </div>
           <div class="lower-target">
-            <div class="target-fight">
-              <% if user_signed_in? %>
-                <%= target.fights.count %>
-                <% if current_user.already_fought?(target) %>
-                  <%= link_to target_fight_path(target, target), method: :delete, class: "fight" do %>
-                    <q>ガンバ！</q><i class="fas fa-heart"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to target_fights_path(target), method: :post, class: "fight" do %>
-                    <q>ガンバ！</q><i class="far fa-heart"></i>
-                  <% end %>
-                <% end %>
-              <% end %>
+            <div id="fight-<%= target.id%>">
+              <%= render 'fights/fight', target: target %>
             </div>
             <% if user_signed_in? && current_user.id == @user.id %>
               <div class="target-achieve">

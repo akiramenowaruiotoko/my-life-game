@@ -11,7 +11,4 @@ class User < ApplicationRecord
   has_many :targets
   has_many :fights, dependent: :destroy
 
-  def already_fought?(target)
-    self.fights.exists?(target_id: target.id)
-  end
 end
