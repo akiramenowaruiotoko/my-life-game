@@ -1,18 +1,14 @@
 class TargetsController < ApplicationController
   before_action :set_user_where, only: [:index, :show]
   before_action :set_current_user, only: [:new, :edit]
-  before_action :set_targets, only: [:new, :edit]
+  before_action :set_user_find_id, only: :show
+  before_action :set_targets, only: [:new, :show, :edit]
   before_action :set_target_find_id, only: [:edit, :update, :destroy, :move_to_index]
   before_action :move_to_index, only: [:edit, :update, :destroy]
-
+  
   def index
   end
 
-  def show
-    @user = User.find(params[:id])
-    set_targets
-  end
-  
   def new
     @target = Target.new
   end
@@ -24,6 +20,9 @@ class TargetsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
+  end
+  
+  def show
   end
   
   def edit
@@ -41,29 +40,33 @@ class TargetsController < ApplicationController
     @target.destroy
     redirect_back(fallback_location: root_path)
   end
-
-  def move_to_index
-    redirect_to action: :index unless current_user.id == @target.user_id
-  end
-
+  
   def set_user_where
     @users = User.where(private_mode: 0)
   end
-
+  
   def set_current_user
     @user = User.find(current_user.id)
   end
-
+  
+  def set_user_find_id
+    @user = User.find(params[:id])
+  end
+  
   def set_targets
     @targets = @user.targets.order('target_date DESC').includes(:user)
   end
-
+  
   def set_target_find_id
     @target = Target.find(params[:id])
   end
-
+  
+  def move_to_index
+    redirect_to action: :index unless current_user.id == @target.user_id
+  end
+  
   private
-
+  
   def target_params
     params.require(:target).permit(:target_date, :content, :achieve).merge(user_id: current_user.id)
   end
