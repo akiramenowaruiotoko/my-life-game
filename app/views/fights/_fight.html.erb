@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <%= target.fights.count %>
+  <% if current_user.fights.find_by(target_id: target.id) %>
+    <%= link_to target_fight_path(target, target), method: :delete, remote: true do %>
+      <q>ガンバ！</q><i class="fas fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= link_to target_fights_path(target), method: :post, remote: true do %>
+      <q>ガンバ！</q><i class="far fa-heart"></i>
+    <% end %>
+  <% end %>
+<% end %>
