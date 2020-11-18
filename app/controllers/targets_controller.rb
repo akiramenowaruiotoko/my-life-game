@@ -55,7 +55,7 @@ class TargetsController < ApplicationController
   end
 
   def set_targets
-    @targets = @user.targets.order('target_date DESC')
+    @targets = @user.targets.order('target_date DESC').includes(:user)
   end
 
   def set_target_find_id
