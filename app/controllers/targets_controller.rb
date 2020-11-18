@@ -36,10 +36,10 @@ class TargetsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-
+  
   def destroy
     @target.destroy
-    redirect_to action: :new
+    redirect_back(fallback_location: root_path)
   end
 
   def move_to_index

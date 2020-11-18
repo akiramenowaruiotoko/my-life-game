@@ -46,10 +46,12 @@ const countDownDate = () => {
     let message;
     // 目標日がまだの場合とすぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
-      message = `残り ${result}`;
+      message = `${result}`;
     }
     else {
-      message = `既に${result}前に経過`;
+      message = `${result}前に経過`;
+      // 出力先の要素を赤字に変える
+      addRmainingTime[i].style.color = '#ff0000';
     }
     // 出力先に出力
     addRmainingTime[i].innerHTML =  message;
@@ -105,10 +107,12 @@ const countDownFreeTime = () => {
     let message;
     // 目標日がまだの場合とすぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
-      message = `残り自由時間はおよそ ${result}`;
+      message = `およそ${result}`;
     }
     else {
-      message = `既に過ぎました`;
+      message = `経過しました`;
+      // 出力先の要素を赤字に変える
+      addRmainingTime[i].style.color = '#ff0000';
     }
     // 出力先に出力
     addRmainingTime[i].innerHTML =  message;
