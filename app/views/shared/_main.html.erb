@@ -25,7 +25,6 @@
       <% unless target.achieve %>
         <li class="target">
           <div class="upper-target">
-          <q>Date&nbsp;</q>
             <div class="taget-date" ,id="targetDate"><%= target.target_date %></div>
             <div class="remaining-time", id='remaining-time'></div>
           </div>
@@ -68,7 +67,6 @@
       <% if target.achieve %>
         <li class="target" target-id=<%= target.id %>>
           <div class="upper-target">
-          <q>Date&nbsp;</q>
             <div class="skill-date" ,id="skillDate"><%= target.target_date %></div>
           </div>
           <div class="middle-target">

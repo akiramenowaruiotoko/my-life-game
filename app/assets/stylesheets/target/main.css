@@ -3,76 +3,60 @@
   height: 100%;
   overflow: scroll;
 }
-
 .upper-main{
   padding: 5px 10px;
-  display: flex;
-  
+  display: flex; 
 }
-
 .name{
   width: 33%;
   font-size: 20px;
   word-wrap: break-word;
   line-height: 20px;
 }
-
 .name-label{
   margin-bottom: 5px;
 }
-
-
 .free-time-wrapper{
   width: 20%;
   margin: 0 10px;
 }
-
 .free-time{
   font-size: 20px;
 }
-
 .count-down{
   margin: 0 10px;
 }
-
 .count-down-icon{
   margin-top: 5px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-
 h3{
   padding-left: 15px;
   font-weight: bold;
   color: darkblue;
 }
-
 .target{
   padding: 5px 0;
   margin: 0 15px;
   border-bottom: 1px solid rgb(39, 39, 148);
 }
-
 .upper-target{
   display: flex;
 }
-
 .remaining-time{
   margin-left: 20px;
 }
-
 .target-content{
   word-wrap: break-word;
   margin: 5px;
   font-weight: bold;
   line-height: 21px;
 }
-
 .lower-target{
   display: flex;
   justify-content: space-around;
 }
-
 .achieves{
   background-color: rgb(226, 240, 250);
 }

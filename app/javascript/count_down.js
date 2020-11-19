@@ -110,7 +110,7 @@ const countDownFreeTime = () => {
       message = `およそ${result}`;
     }
     else {
-      message = `経過しました`;
+      message = `OVER`;
       // 出力先の要素を赤字に変える
       addRmainingTime[i].style.color = '#ff0000';
     }
@@ -152,7 +152,9 @@ document.addEventListener("turbolinks:load", function() {
     timeArray.push(setInterval(countDownFreeTime, 1000)); 
   });
   // カウントダウンを全て停止
-  $("#stop-time").on('click', function() {
+  // クリックしたらストップする要素を選択
+  const stops = $("#stop-time, .page-nav, .name-nav");
+  $(stops).on('click', function() {
     // 出力先の要素を取得
     const stopRmainingTime = document.getElementsByClassName("remaining-time");
     // 繰り返し処理の回数を算出

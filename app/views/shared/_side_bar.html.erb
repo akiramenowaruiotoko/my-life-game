@@ -2,9 +2,9 @@
   <thead>
     <tr><th>
     <% if user_signed_in? %>
-    <%= link_to "マイページ", new_target_path(current_user), class: "my-page" %>
+    <%= link_to "マイページ", new_target_path(current_user), class: "page-nav" %>
     <% else %>
-    <%= link_to "ログイン",                      new_user_session_path, class: "my-page" %>
+    <%= link_to "ログイン",                      new_user_session_path, class: "page-nav" %>
     <% end %>
      </th></tr>
   </thead>

@@ -22,7 +22,14 @@
   display: flex;
 }
 .nav-link{
-  font-size: 15px;
-  padding: 0 10px;
+  font-size: 20px;
+  padding: 0 20px;
   text-decoration: none;
+  color: brown;
+}
+@media (max-width: 849px) {
+  .nav-link{
+    font-size: 15px;
+    padding: 0 5px;
+  }
 }
