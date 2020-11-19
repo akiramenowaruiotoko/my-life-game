@@ -3,20 +3,20 @@
   background-color: rgb(40, 40, 146);
   color: aliceblue;
   width: 100%;
-  height: 100%;
-  padding: 13px 10px;
+  height: 160px;
+  padding: 15px 10px;
 }
 .target-date-wrap{
   display: flex;
   height: 25px;
+  margin-bottom: 20px;
 }
-.form-label{
-  margin-right: 10px;
+span,.form-label{
+  margin: 5px 5px 20px;
 }
 textarea {
   width: 290px;
-  height: 5em;
-  margin-top: 17px;
+  height: 6em;
 }
 @media (min-width: 768px) {
   textarea {
@@ -24,7 +24,7 @@ textarea {
   }
 }
 .form-submit{
-  height: 5em;
+  height: 6em;
   width: 50px;
-  margin: auto 0 2px 8px;
+  margin: auto 0 5px 10px;
 }

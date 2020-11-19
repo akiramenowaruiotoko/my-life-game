@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <ul class="targets"><h3>ターゲット</h3>
+  <ul class="targets"><h3 class="section">ターゲット</h3>
     <% @targets.each do |target| %>
       <% unless target.achieve %>
         <li class="target">
@@ -41,7 +41,7 @@
               <div class="target-achieve">
                 <% unless target.already_achieved?(target) %>
                   <%= link_to target_achieves_path(target), method: :post, class: "achieve" do %>
-                    <q>GET </q><i class="far fa-square"></i>
+                    <span>GET </span><i class="far fa-square"></i>
                   <% end %>
                 <% end %>
               </div>
@@ -62,7 +62,7 @@
     <% end %>    
   </ul>
 
-  <ul class="achieves"><h3>ステータス</h3>
+  <ul class="achieves"><h3 class="section">ステータス</h3>
     <% @targets.each do |target| %>
       <% if target.achieve %>
         <li class="target" target-id=<%= target.id %>>
@@ -82,7 +82,7 @@
               <div class="target-achieve">
                 <% if target.already_achieved?(target) %>
                   <%= link_to  target_achiefe_path(target, target), method: :delete, class: "achieve" do %>
-                    <q>GET </q><i class="fas fa-check-square"></i>
+                    <span>GET </span><i class="fas fa-check-square"></i>
                   <% end %>
                 <% end %>
               </div>

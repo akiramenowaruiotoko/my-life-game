@@ -6,9 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :free_time, presence: true
-  validates :private_mode, inclusion: { in: [true, false]}
+  validates :private_mode, inclusion: { in: [true, false] }
 
   has_many :targets
   has_many :fights, dependent: :destroy
-
 end

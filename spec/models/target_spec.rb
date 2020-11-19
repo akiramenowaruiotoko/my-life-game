@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Target, type: :model do
-  describe 'ユーザー登録' do 
+  describe 'ユーザー登録' do
     before do
       @target = FactoryBot.build(:target)
     end

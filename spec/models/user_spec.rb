@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
       it 'private_modeが空では登録できない' do
         @user.private_mode = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Private mode is not included in the list")
+        expect(@user.errors.full_messages).to include('Private mode is not included in the list')
       end
     end
   end
