@@ -8,28 +8,28 @@
 }
 .logo{
   padding-left: 10px;
-  font-size: 40px;
-  line-height: 40px;
   text-decoration: none;
+  font-size: 25px;
+  line-height: 26px;
 }
-@media (max-width: 849px) {
+@media (min-width: 768px) {
   .logo {
-    font-size: 25px;
-    line-height: 26px;
+    font-size: 40px;
+    line-height: 40px;
   }
 }
 .devise-nav{
   display: flex;
 }
 .nav-link{
-  font-size: 20px;
-  padding: 0 20px;
+  font-size: 15px;
+  padding: 0 5px;
   text-decoration: none;
   color: brown;
 }
-@media (max-width: 849px) {
+@media (min-width: 768px) {
   .nav-link{
-    font-size: 15px;
-    padding: 0 5px;
+    font-size: 20px;
+    padding: 0 20px;
   }
 }

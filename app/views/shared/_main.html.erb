@@ -25,7 +25,7 @@
       <% unless target.achieve %>
         <li class="target">
           <div class="upper-target">
-            <div class="taget-date" ,id="targetDate"><%= target.target_date %></div>
+            <div class="target-date" ,id="targetDate"><%= target.target_date %></div>
             <div class="remaining-time", id='remaining-time'></div>
           </div>
           <div class="middle-target">
@@ -41,7 +41,7 @@
               <div class="target-achieve">
                 <% unless target.already_achieved?(target) %>
                   <%= link_to target_achieves_path(target), method: :post, class: "achieve" do %>
-                    <span>GET </span><i class="far fa-square"></i>
+                    <q>GET </q><i class="far fa-square"></i>
                   <% end %>
                 <% end %>
               </div>
@@ -82,7 +82,7 @@
               <div class="target-achieve">
                 <% if target.already_achieved?(target) %>
                   <%= link_to  target_achiefe_path(target, target), method: :delete, class: "achieve" do %>
-                    <span>GET </span><i class="fas fa-check-square"></i>
+                    <q>GET </q><i class="fas fa-check-square"></i>
                   <% end %>
                 <% end %>
               </div>

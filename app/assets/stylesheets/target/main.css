@@ -4,12 +4,12 @@
   overflow: scroll;
 }
 .upper-main{
-  padding: 5px 5px 15px;
+  padding: 5px 5px 0 5px;
   display: flex;
   justify-content: space-between;
 }
 .name{
-  font-size: 20px;
+  font-size: 18px;
   word-wrap: break-word;
   line-height: 20px;
 }
@@ -18,36 +18,53 @@
   margin: 0 10px;
 }
 .free-time{
-  font-size: 20px;
+  margin-top: 5px;
+  font-size: 18px;
 }
 .count-down{
-  margin: 0 10px;
+  margin: 0 8px;
 }
 .count-down-icon{
-  margin-top: 5px;
+  margin-top: 8px;
   display: flex;
   justify-content: space-between;
 }
 .section{
-  padding: 0 0 15px 5px;
+  padding: 10px 0 15px 5px;
   font-weight: bold;
   color: darkblue;
 }
 .target{
-  padding: 5px 0;
+  padding: 7px 0;
   margin: 0 5px;
   border-bottom: 1px solid rgb(39, 39, 148);
   list-style: none;
+}
+.target-date{
+  font-size: 15px;
+}
+@media (min-width: 768px) {
+  .target-date{
+   font-size: 17px; 
+  }
 }
 .upper-target{
   display: flex;
 }
 .remaining-time{
-  margin-left: 20px;
+  font-size: 15px;
+  margin:3px 0 0 20px;
+  line-height: 10px;
+}
+@media (min-width: 768px) {
+  .remaining-time{
+    font-size: 17px;
+    margin:3px 0 0 40px;
+  }
 }
 .target-content{
   word-wrap: break-word;
-  margin: 5px;
+  margin: 5px 5px 10px 5px;
   font-weight: bold;
   line-height: 21px;
 }

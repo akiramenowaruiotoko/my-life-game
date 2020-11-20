@@ -1,7 +1,7 @@
 // countDownDateの処理を記述
 const countDownDate = () => {
   // 元となるデータの取得
-  const targetDate = document.getElementsByClassName('taget-date');
+  const targetDate = document.getElementsByClassName('target-date');
   // 出力先の要素を取得
   const addRmainingTime = document.getElementsByClassName("remaining-time");
   // 繰り返し処理の回数を算出
@@ -37,19 +37,28 @@ const countDownDate = () => {
     const rMin = rmainingTime / 60;
     rmainingTime = rmainingTime % 60;
     const rSec = rmainingTime;
-    const result = Math.floor(ryear) + "年 "
-    + Math.floor(rDays) + "日 "
-    + Math.floor(rHour) + "時間 "
-    + Math.floor(rMin) + "分 "
-    + Math.floor(rSec) + "秒";
-    // 表示する内容を記述
+    // メディアクエリ記述
+    if(window.matchMedia("(min-width: 768px)").matches){
+      // 表示する内容を記述(変数定義はfreetimeで記述してある)
+      result = Math.floor(ryear) + "年 "
+      + Math.floor(rDays) + "日"
+      + Math.floor(rHour) + "時間"
+      + Math.floor(rMin) + "分"
+      + Math.floor(rSec) + "秒";
+    }else{
+      result = Math.floor(ryear) + "年 "
+      + Math.floor(rDays) + "日" + "<br></br>"
+      + Math.floor(rHour) + "時間"
+      + Math.floor(rMin) + "分"
+      + Math.floor(rSec) + "秒";
+    }
     let message;
-    // 目標日がまだの場合とすぎた場合の表示切り替え
+    // 目標日がまだの場合と過ぎた場合の表示切り替え
     if( targetDateValue > nowTime) {
-      message = `${result}`;
+      message = `残り日時 ${result}`;
     }
     else {
-      message = `${result}前に経過`;
+      message = `OVER ${result}`;
       // 出力先の要素を赤字に変える
       addRmainingTime[i].style.color = '#ff0000';
     }
@@ -58,10 +67,10 @@ const countDownDate = () => {
   };
 };
 
-// countDownDateの処理を記述
+// countDownFreeTimeの処理を記述
 const countDownFreeTime = () => {
   // 元となるデータの取得
-  const targetDate = document.getElementsByClassName('taget-date');
+  const targetDate = document.getElementsByClassName('target-date');
   // 出力先の要素を取得
   const addRmainingTime = document.getElementsByClassName("remaining-time");
   // 自由時間取得
@@ -89,6 +98,10 @@ const countDownFreeTime = () => {
     let rmainingTime = targetDateValue - nowTime;
     // 1000ミリ秒を1秒に変換
     rmainingTime /= 1000;
+    // 目標日がすぎた場合は-1を掛けて正の値に変換        
+    if( targetDateValue < nowTime) {
+      rmainingTime *= -1;
+    }
     // 残り日数を算出
     let rDays = rmainingTime / ( 3600 * 24);
     // 残り日数に(一日 - 自由時間)を掛ける
@@ -105,15 +118,27 @@ const countDownFreeTime = () => {
     + Math.floor(rSec) + "秒";
     // 表示文字列の作成
     let message;
-    // 目標日がまだの場合とすぎた場合の表示切り替え
-    if( targetDateValue > nowTime) {
-      message = `およそ${result}`;
+    // メディアクエリ記述
+    if(window.matchMedia("(min-width: 768px)").matches){
+      // 目標日がまだの場合とすぎた場合の表示切り替え
+      if( targetDateValue > nowTime) {
+        message = `残り自由時間 ${result}`;
+      }
+      else {
+        message = `OVER ${result}`;
+        // 出力先の要素を赤字に変える
+        addRmainingTime[i].style.color = '#ff0000';
+      }
+    } else {
+      if( targetDateValue > nowTime) {
+        message = `残り自由時間<br></br>${result}`;
+      }
+      else {
+        message = `OVER<br></br>${result}`;
+        addRmainingTime[i].style.color = '#ff0000';
+      }
     }
-    else {
-      message = `OVER`;
-      // 出力先の要素を赤字に変える
-      addRmainingTime[i].style.color = '#ff0000';
-    }
+    
     // 出力先に出力
     addRmainingTime[i].innerHTML =  message;
   };
@@ -180,4 +205,6 @@ document.addEventListener("turbolinks:load", function() {
       };
     }; 
   });
+  // メディアクエリ定義
+
 });
