@@ -6,6 +6,7 @@ class Target < ApplicationRecord
   with_options presence: true do
     validates :content
     validates :target_date
+    validates :user
   end
 
   def already_achieved?(target)

@@ -21,7 +21,7 @@
 | ------       | ------     | -----------       |
 | content      | string     | null: false       |
 | target_date  | date       | null: false       |
-| user         | references | foreign_key: true |
+| user_id      | integer    | null: false       |
 
 ### Association
 
@@ -33,7 +33,7 @@
 
 | Column        | Type       | Options           |
 | -------       | ---------- | ----------------- |
-| target        | integer    |                   |
+| target_id     | integer    | null: false       |
 
 ### Association
 
@@ -43,8 +43,8 @@
 
 | Column        | Type       | Options           |
 | -------       | ---------- | ----------------- |
-| target        | integer    |                   |
-| user          | integer    |                   |
+| target_id     | integer    | null: false       |
+| user_id       | integer    | null: false       |
 
 ### Association
 
