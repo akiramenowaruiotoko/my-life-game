@@ -1,6 +1,7 @@
 <table  class="side-bar">
   <thead>
     <tr><th>
+    <tr><th>
     <% if user_signed_in? %>
     <%= link_to "マイページ", new_target_path(current_user), class: "page-nav" %>
     <% else %>
@@ -9,10 +10,11 @@
      </th></tr>
   </thead>
   <tbody>
+  <tr><td class="names">names</td></tr>   
     <% @users.each do |user| %>
       <tr><td>
       <%= link_to user.name, target_path(user.id), class: "name-nav" %>
-        </td></tr>   
+      </td></tr>   
     <% end %>
   </tbody>
 </table>
