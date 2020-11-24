@@ -57,6 +57,14 @@ Password: hhhhhh
 
 ## ローカルでの動作方法
 
-Rails version 6.0.3.4  
-Ruby Version 2.6.5  
-Database adapter mysql2
+*アプリケーション開発に使用した環境  
+ Rails version 6.0.3.4  
+ Ruby Version 2.6.5  
+ Database adapter mysql2  
+
+*ローカルで動作をさせるまでに必要なコマンド
+ git clone https://github.com/akiramenowaruiotoko/my-life-game  
+ bundle install  
+ rake db:create  
+ rake db:migrate  
+ rails s
