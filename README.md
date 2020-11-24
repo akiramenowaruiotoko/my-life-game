@@ -6,7 +6,7 @@
 
 * 目標には期日を設け、残り日時を表示させることができる  
 * １日の自由時間を設定し、残り時間を表示させることができる  
-*目標は公開/非公開することができる  
+* 目標は公開/非公開することができる  
 * 達成した目標はステータスに反映させることができる  
 * 目標に対してガンバ！（いいね）できる
 
@@ -61,7 +61,7 @@ Password: hhhhhh
 * Ruby Version 2.6.5  
 * Database adapter mysql2
 
-## インストール方法
+## インストール方法/コマンド
 
 * git clone https://github.com/akiramenowaruiotoko/my-life-game  
 * bundle install  
