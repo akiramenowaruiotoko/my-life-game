@@ -16,8 +16,11 @@
 ![ffe4283a94205e1a846f44bfb4744c2b](https://user-images.githubusercontent.com/72367383/100053135-bbf4fe00-2e62-11eb-9bea-2f86892b032b.gif)
 
 ## URL
-
-https://my-life-game.herokuapp.com/
+* Heroku  
+https://my-life-game.herokuapp.com/  
+  
+* EC2
+http://54.249.146.189/
 
 ## テスト用アカウント
 
@@ -64,7 +67,7 @@ Password: hhhhhh
 
 ## インストール方法/コマンド
 
-* git clone https://github.com/akiramenowaruiotoko/my-life-game  
+* git clone https://github.com/akiramenowaruiotoko/my-life-game.git  
 * bundle install  
 * rails db:create  
 * rails db:migrate  
