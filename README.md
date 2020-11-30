@@ -20,7 +20,7 @@
 https://my-life-game.herokuapp.com/  
   
 * EC2  
-http://54.249.146.189/
+https://my-life-game.info/
 
 ## テスト用アカウント
 
